@@ -1,13 +1,12 @@
 <template>
   <div id="log">
-    <div v-if="!islogin">
-      <div @click="logbox" class="logBtn">登录</div>
-      <div v-show="boxShower">
-        <form>
-          <input type="text" name="account" placeholder="账号"><br>
+    <div v-if="!islogin" class="logSelector">
+      <div v-show="!boxShower" @click="logbox" class="logBtn">登录</div>
+        <form v-show="boxShower" class="logForm">
+          <input type="text" name="account" placeholder="账号">
           <input type="password" name="password" placeholder="密码">
+          <input class="inBtn" type="submit" value="确认">
         </form>
-      </div>
     </div>
     <div v-else>
       <span>用户id:{{userid}}
@@ -49,17 +48,50 @@ export default {
 
 <style scoped>
 #log {
-  width: 150px;
+  position: absolute;
+  right: 0px;
+  width: 270px;
+  height: 100%;
+}
+
+.logSelector {
+  perspective: 600px;
 }
 
 .logBtn {
-  cursor:pointer;
+  position: absolute;
+  cursor: pointer;
+  border: 2px;
+  width: 100px;
+  height: 50px;
+  top: 20px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  background-color: #fff;
+  line-height: 50px;
+  border-radius: 5px;
+  transition: all 0.5s;
+}
+
+.logBtn:hover {
+  transform: translateZ(60px)
+}
+
+.logForm {
+  top: 20px;
+  position: absolute;
 }
 
 input {
-  width: 100px;
-  position: absolute;
-  left: 0px;
+  margin: 5px;
+  float: left;
+  width: 150px;
 }
+.inBtn {
+  width: 60px;
+  height: 30px;
+}
+
 
 </style>

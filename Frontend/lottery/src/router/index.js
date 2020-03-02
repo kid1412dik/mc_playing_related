@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-const userView = () => import('../views/userView.vue')
+const userView = () => import('../views/userView/userView.vue')
 const managerView = () => import('../views/managerView.vue')
 Vue.use(VueRouter)
 

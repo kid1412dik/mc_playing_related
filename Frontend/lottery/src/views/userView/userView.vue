@@ -1,13 +1,13 @@
 <template>
   <div id="userView">
     <tabbar class="tabbar"></tabbar>
-    <pool-shower class="poolShower"></pool-shower>
+    <pool-Ui class="poolShower"></pool-Ui>
   </div>
 </template>
 
 <script>
-import tabbar from 'components/context/tabbar'
-import poolShower from 'components/context/poolShower'
+import tabbar from 'views/userView/userComp/tabbar'
+import poolUi from 'views/userView/userComp/poolUi'
 import {getmultdata} from 'network/userView.js'
 
 export default {
@@ -22,7 +22,7 @@ export default {
   },
   components:{
     tabbar,
-    poolShower,
+    poolUi,
   },
   methods:{
     getmultdata(){
