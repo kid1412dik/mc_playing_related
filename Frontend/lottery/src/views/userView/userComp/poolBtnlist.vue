@@ -1,15 +1,26 @@
 <template>
   <div id="poolBtnlist">
-    <div class="drawBtn">抽一发:{{}}</div>
-    <div class="drawBtn">十连:{{}}</div>
-    <div class="drawBtn">64响:{{}}</div>
+    <button class="drawBtn" @click="draw(1)">抽一发:{{onetTimes}}</button>
+    <button class="drawBtn" @click="draw(10)">十连:{{onetTimes*10}}</button>
+    <button class="drawBtn" @click="draw(64)">64响:{{onetTimes*64}}</button>
   </div>
 </template>
 
 <script>
 export default {
-  name:'poolBtnlist'
+  name:'poolBtnlist',
+  props:{
+    // onetTimes,
+  },
+  methods:{
+    draw(times){
+      let totalmoney = this.onetTimes * times;
+      this.$storestore.dispatch('uploadBalance', totalmoney).then(res => {
 
+      })
+
+    }
+  }
 }
 </script>
 
